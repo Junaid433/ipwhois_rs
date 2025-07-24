@@ -5,7 +5,9 @@ edition = "2024"
 authors = ["Junaid Rahman <junaid.cloud2@gmail.com>"]
 description = "Rust wrapper for the ipwhois.io geolocation API"
 license = "MIT"
-repository = "https://github.com/Junaid433/binlist_rs"
+repository = "https://github.com/Junaid433/ipwhois_rs"
+homepage = "https://github.com/Junaid433/ipwhois_rs"
+documentation = "https://docs.rs/ipwhois_rs"
 
 [dependencies]
 tokio = { version = "1.33", features = ["full"] }
