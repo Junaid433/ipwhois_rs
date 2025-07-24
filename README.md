@@ -99,7 +99,4 @@ The `IpWhoIsResponse` struct contains detailed information returned by the API.
 
 ## License
 
-MIT © 2025 Junaid Rahman (https://github.com/junaid433)
-
-```
-
+MIT © 2025 Junaid Rahman(https://github.com/junaid433)
