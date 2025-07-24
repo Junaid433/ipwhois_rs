@@ -16,6 +16,32 @@ A Rust wrapper library for IP whois and geolocation lookup using ipwhois.io API.
 
 ---
 
+## Example Usage
+
+```rust
+use ipwhois_rs::IpWhoIs;
+
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let mut client = IpWhoIs::new();
+    let info = client.lookup("8.8.4.4").await?;
+
+    println!("IP: {}", info.ip);
+    println!("Country: {} ({})", info.country, info.country_code);
+    println!("City: {}", info.city);
+    println!("Latitude: {}", info.latitude);
+    println!("Longitude: {}", info.longitude);
+    println!("Flag Emoji: {}", info.flag.emoji);
+    println!("ISP: {}", info.connection.isp);
+    println!("Timezone: {}", info.timezone.id);
+
+    Ok(())
+}
+
+````
+
+---
+
 ## Response Data Structure
 
 The `IpWhoIsResponse` struct contains detailed information returned by the API.
@@ -68,32 +94,6 @@ The `IpWhoIsResponse` struct contains detailed information returned by the API.
 - **offset** (`i32`): Offset in seconds from UTC (e.g., -25200).
 - **utc** (`String`): UTC offset as a string (e.g., "-07:00").
 - **current_time** (`String`): Current local time in the timezone.
-
----
-
-## Example Usage
-
-```rust
-use ipwhois_rs::IpWhoIs;
-
-#[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let mut client = IpWhoIs::new();
-    let info = client.lookup("8.8.4.4").await?;
-
-    println!("IP: {}", info.ip);
-    println!("Country: {} ({})", info.country, info.country_code);
-    println!("City: {}", info.city);
-    println!("Latitude: {}", info.latitude);
-    println!("Longitude: {}", info.longitude);
-    println!("Flag Emoji: {}", info.flag.emoji);
-    println!("ISP: {}", info.connection.isp);
-    println!("Timezone: {}", info.timezone.id);
-
-    Ok(())
-}
-
-````
 
 ---
 
